@@ -1,0 +1,9 @@
+<ng-container [ngSwitch]="type">
+  <button *ngSwitchCase="'mb'" mat-button [color]="color" (click)="btnClick.emit()">{{ text }}</button>
+  <button *ngSwitchCase="'mrb'" mat-raised-button [color]="color" (click)="btnClick.emit()">{{ text }}</button>
+  <button *ngSwitchCase="'mfb'" mat-flat-button [color]="color" (click)="btnClick.emit()">{{ text }}</button>
+  <button *ngSwitchCase="'mib'" mat-icon-button [color]="color" (click)="btnClick.emit()">
+    <mat-icon>{{ icon }}</mat-icon>
+    {{ text }}
+  </button>
+</ng-container>
