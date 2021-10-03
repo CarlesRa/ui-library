@@ -1,0 +1,12 @@
+<ng-container [ngSwitch]="mode">
+  <ng-template ngSwitchCase="success">
+    <div class="notification-container  row">
+      <div class="col">
+        <div class="d-flex justify-content-between p-3">
+          <span class="fs-5">{{ text }}</span>
+          <mat-icon>{{ icon ?? 'check' }}</mat-icon>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ng-container>

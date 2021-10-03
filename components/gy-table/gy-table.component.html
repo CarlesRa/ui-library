@@ -1,14 +1,17 @@
-<div *ngIf="!isLoading">
-  <mat-paginator *ngIf="showPaginator" [length]="dataSource.length" [pageSize]="10" [pageSizeOptions]="pageSizeOptions"></mat-paginator>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" matSort (matSortChange)="sortData()">
-    <ng-container *ngFor="let data of tableData.modelAttributeName let i=index;"
+<div>
+  <mat-paginator *ngIf="showPaginator" [length]="dataSource.length" [pageSize]="10"
+                 [pageSizeOptions]="pageSizeOptions"></mat-paginator>
+  <table mat-table [dataSource]="dataSource" [fixedLayout]="fixedLayout" class="mat-elevation-z8" matSort
+         (matSortChange)="sortData()">
+    <ng-container *ngFor="let data of tableData.modelAttributeNameList let i=index;"
                   [matColumnDef]="data">
-      <th mat-header-cell mat-sort-header *matHeaderCellDef>{{ tableData.displayedColumns[i] }}</th>
+      <th mat-header-cell mat-sort-header [bgColor]="" [ngStyle]="{ 'color': headerTextColor }"
+          *matHeaderCellDef>{{ tableData.displayedColumnsList[i] }}</th>
       <td mat-cell *matCellDef="let element">{{ element[data]}}</td>
     </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="tableData.modelAttributeName"></tr>
-    <tr mat-row *matRowDef="let row; columns: tableData.modelAttributeName"></tr>
+    <tr mat-header-row *matHeaderRowDef="tableData.modelAttributeNameList"></tr>
+    <tr mat-row *matRowDef="let row; columns: tableData.modelAttributeNameList"></tr>
   </table>
 </div>
 

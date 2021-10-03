@@ -11,12 +11,21 @@ import {MatTableDataSource} from "@angular/material/table";
 })
 export class GyTableComponent implements OnInit {
 
-  isLoading = true;
+  // Data
   @Input() dataSource!: any;
   @Input() tableData!: GyTablePropertyListModel;
-  @Input() showPaginator = true;
+  @Input() perPageLabel: string = 'Items per page';
   @Input() pageSizeOptions!: number[];
-  @Input() perPageLabel: string = 'Ítems por página';
+
+  // Conditionals
+  @Input() showPaginator = true;
+  @Input() fixedLayout = true;
+
+  // Style
+  @Input() headerTextColor: string = 'black';
+  @Input() headerBgColor!: string;
+
+  // Mat sort control
   @ViewChild(MatSort) sort!: MatSort;
   @ViewChild(MatPaginator, { static: false }) paginator!: MatPaginator;
 
@@ -36,7 +45,6 @@ export class GyTableComponent implements OnInit {
   setPaginator(): void {
     setTimeout(() => {
       this.dataSource.paginator = this.paginator;
-      this.isLoading = false;
       if (this.paginator && this.paginator !== undefined) {
         this.paginator._intl.itemsPerPageLabel = this.perPageLabel;
       }

@@ -1,8 +1,8 @@
 /**
  * @author Carles Ramos
- * Class to define model value to tab
+ * Class to define model value to mat-table
  */
 export class GyTablePropertyListModel {
-  modelAttributeName!: string[];
-  displayedColumns!: string[];
+  modelAttributeNameList!: string[]; // the object keys
+  displayedColumnsList!: string[]; // the names to show on table header
 }
