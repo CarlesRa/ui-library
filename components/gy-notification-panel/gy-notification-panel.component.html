@@ -1,12 +1,37 @@
 <ng-container [ngSwitch]="mode">
+  <ng-template ngSwitchCase="primary">
+    <div class="alert alert-primary d-flex justify-content-between fs-5" role="alert">
+      <span>{{ text }}</span>
+      <mat-icon>{{ icon ?? 'info' }}</mat-icon>
+    </div>
+  </ng-template>
+  <ng-template ngSwitchCase="secondary">
+    <div class="alert alert-secondary d-flex justify-content-between fs-5" role="alert">
+      <span>{{ text }}</span>
+      <mat-icon>{{ icon ?? 'info' }}</mat-icon>
+    </div>
+  </ng-template>
   <ng-template ngSwitchCase="success">
-    <div class="notification-container  row">
-      <div class="col">
-        <div class="d-flex justify-content-between p-3">
-          <span class="fs-5">{{ text }}</span>
-          <mat-icon>{{ icon ?? 'check' }}</mat-icon>
-        </div>
-      </div>
+    <div class="alert alert-success d-flex justify-content-between fs-5" role="alert">
+      <span>{{ text }}</span>
+      <mat-icon>{{ icon ?? 'done_outline' }}</mat-icon>
+    </div>
+  </ng-template>
+  <ng-template ngSwitchCase="info">
+    <div class="alert alert-success d-flex justify-content-between fs-5" role="alert">
+      <span>{{ text }}</span>
+      <mat-icon>{{ icon ?? 'info' }}</mat-icon>
+    </div>
+  </ng-template>
+  <ng-template ngSwitchCase="danger">
+    <div class="alert alert-danger d-flex justify-content-between fs-5" role="alert">
+      <span>{{ text }}</span>
+      <mat-icon>{{ icon ?? 'error' }}</mat-icon>
+    </div>
+  </ng-template>
+  <ng-template ngSwitchDefault>
+    <div class="alert alert-dark d-flex justify-content-between fs-5" role="alert">
+      <span>Notification not implemented correctly modes available: primary, secondary, success, info, danger</span>
     </div>
   </ng-template>
 </ng-container>
